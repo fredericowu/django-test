@@ -75,13 +75,27 @@ WSGI_APPLICATION = 'cognitivo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}
 
+}
+"""
+
+DATABASES = {
+    'default': {
+        'NAME': 'djtestdb',
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': 'djtestuser',
+        'PASSWORD': 'djtestpass',
+        'HOST': 'hostdb',
+        'OPTIONS': {'charset': 'utf8', 'autocommit': True,},
+       'CONN_MAX_AGE': 60,
+    },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
